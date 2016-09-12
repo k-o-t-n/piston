@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piston", "Piston\Piston.csproj", "{2527E43E-487B-4900-87BE-FAE7434FE28D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piston.Tests", "Piston.Tests\Piston.Tests.csproj", "{ADB1E2DC-F03E-43F6-8217-D9C312ED2971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2527E43E-487B-4900-87BE-FAE7434FE28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2527E43E-487B-4900-87BE-FAE7434FE28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2527E43E-487B-4900-87BE-FAE7434FE28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB1E2DC-F03E-43F6-8217-D9C312ED2971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB1E2DC-F03E-43F6-8217-D9C312ED2971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB1E2DC-F03E-43F6-8217-D9C312ED2971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB1E2DC-F03E-43F6-8217-D9C312ED2971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
