@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Piston.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,17 @@ namespace Piston.Controllers
 {
     public class PageController : Controller
     {
+        private readonly IPageStorage _pageStorage;
+
+        public PageController(IPageStorage pageStorage)
+        {
+            _pageStorage = pageStorage;
+        }
+
         [Route("~/page/{pageName}", Name = "Page")]
         public ActionResult Index(string pageName)
         {
-            var page = Storage.GetAllPages().SingleOrDefault(p => p.Title == pageName);
+            var page = _pageStorage.GetAllPages().SingleOrDefault(p => p.Title == pageName);
 
             if (page == null)
             {
@@ -19,6 +27,14 @@ namespace Piston.Controllers
             }
 
             return View(page);
+        }
+
+        [Route("~/page/menu")]
+        public ActionResult Menu()
+        {
+            var pages = _pageStorage.GetAllPages();
+
+            return PartialView(pages);
         }
     }
 }

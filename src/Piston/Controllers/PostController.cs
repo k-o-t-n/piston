@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Piston.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,25 @@ namespace Piston.Controllers
 {
     public class PostController : Controller
     {
-        [Route("~/post/{*slug}", Name = "Post")]
-        public ActionResult Index(string slug)
+        private readonly IPostStorage _postStorage;
+
+        public PostController(IPostStorage postStorage)
         {
-            var post = Storage.GetAllPosts().SingleOrDefault(p => p.Url == slug);
+            _postStorage = postStorage;
+        }
+
+        [Route("~/", Name = "Home")]
+        public ActionResult Index()
+        {
+            var posts = _postStorage.GetAllPosts();
+
+            return View(posts);
+        }
+
+        [Route("~/post/{*slug}", Name = "Post")]
+        public ActionResult ViewPost(string slug)
+        {
+            var post = _postStorage.GetAllPosts().SingleOrDefault(p => p.Url == slug);
 
             if (post == null)
             {

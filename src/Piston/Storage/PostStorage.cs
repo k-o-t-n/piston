@@ -1,74 +1,30 @@
-﻿using HeyRed.MarkdownSharp;
-using Piston.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
+using Piston.Models;
+using System.IO;
 using System.Web.Hosting;
+using System.Text.RegularExpressions;
+using System.Globalization;
+using HeyRed.MarkdownSharp;
 
-namespace Piston
+namespace Piston.Storage
 {
-    public static class Storage
+    internal class PostStorage : IPostStorage
     {
-        private static string _pages = HostingEnvironment.MapPath("~/pages/");
         private static string _posts = HostingEnvironment.MapPath("~/posts/");
         private static readonly Regex FileNameRegex =
             new Regex(@"^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})-(?<slug>.+).(?:md|markdown)$",
                 RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        private static Markdown _mark = new Markdown();
+        private readonly Markdown _mark;
 
-        public static List<Page> GetAllPages()
+        public PostStorage(Markdown mark)
         {
-            if (HttpRuntime.Cache["pages"] == null)
-            {
-                LoadPages();
-            }
-
-            if (HttpRuntime.Cache["pages"] != null)
-            {
-                return (List<Page>)HttpRuntime.Cache["pages"];
-            }
-
-            return new List<Page>();
+            _mark = mark;
         }
 
-        private static void LoadPages()
-        {
-            var pages = new List<Page>();
-
-            foreach (string file in Directory.EnumerateFiles(_pages, "*.md", SearchOption.TopDirectoryOnly))
-            {
-                var page = new Page
-                {
-                    Title = Path.GetFileNameWithoutExtension(file),
-                    Content = _mark.Transform(File.ReadAllText(file))
-                };
-
-                pages.Add(page);
-            }
-
-            HttpRuntime.Cache.Insert("pages", pages);
-        }
-
-        public static List<Post> GetAllPosts()
-        {
-            if (HttpRuntime.Cache["posts"] == null)
-            {
-                LoadPosts();
-            }
-
-            if (HttpRuntime.Cache["posts"] != null)
-            {
-                return (List<Post>)HttpRuntime.Cache["posts"];
-            }
-
-            return new List<Post>();
-        }
-
-        private static void LoadPosts()
+        public IEnumerable<Post> GetAllPosts()
         {
             var posts = new List<Post>();
 
@@ -136,7 +92,7 @@ namespace Piston
 
             posts.SetPostUrl();
 
-            HttpRuntime.Cache.Insert("posts", posts);
+            return posts.AsEnumerable();
         }
 
         private static Dictionary<string, object> ParseSettings(string rawSettings)

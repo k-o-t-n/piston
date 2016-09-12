@@ -16,16 +16,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(Settings.Title, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.RouteLink(Settings.Title, routeName: "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @foreach (var page in Storage.GetAllPages())
-                    {
-                        <li>@Html.RouteLink(page.Title, routeName: "Page", routeValues: new { PageName = page.Title })</li>
-                    }
-                </ul>
-            </div>
+            @Html.Action("Menu", new { Controller = "Page", Action = "Menu" })
         </div>
     </div>
     <div class="container body-content">

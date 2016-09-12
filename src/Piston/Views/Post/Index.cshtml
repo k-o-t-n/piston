@@ -1,9 +1,12 @@
-﻿@model Piston.Models.Post
+﻿@model IEnumerable<Piston.Models.Post>
+
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = "Home Page";
 }
 
-<h1>@Model.Title</h1>
-<p>@Model.Author</p>
-
-@Html.Raw(Model.Content)
+<ul>
+@foreach(var post in Model)
+{
+    <li>@Html.RouteLink(post.Title, routeName: "Post", routeValues: new { slug = post.Url })</li>
+}
+</ul>
