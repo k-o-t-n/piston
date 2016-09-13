@@ -25,6 +25,10 @@ namespace Piston
 
             builder.RegisterType<Markdown>().SingleInstance();
 
+            builder.RegisterType<ContentLoader>().As<IContentLoader>().SingleInstance();
+            builder.RegisterType<FileReader>().As<IFileReader>().SingleInstance();
+            builder.RegisterType<DirectoryReader>().As<IDirectoryReader>().SingleInstance();
+
             return builder.Build();
         }
     }

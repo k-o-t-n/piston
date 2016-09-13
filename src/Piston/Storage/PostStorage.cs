@@ -18,24 +18,25 @@ namespace Piston.Storage
             new Regex(@"^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})-(?<slug>.+).(?:md|markdown)$",
                 RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private readonly Markdown _mark;
+        private readonly IDirectoryReader _directoryReader;
 
-        public PostStorage(Markdown mark)
+        public PostStorage(Markdown mark, IDirectoryReader directoryReader)
         {
             _mark = mark;
+            _directoryReader = directoryReader;
         }
 
         public IEnumerable<Post> GetAllPosts()
         {
             var posts = new List<Post>();
 
-            foreach (string file in Directory.EnumerateFiles(_posts, "*.md", SearchOption.TopDirectoryOnly))
+            foreach (var file in _directoryReader.EnumerateFiles(_posts))
             {
-                var fileName = Path.GetFileName(file);
-                var fileNameMatches = FileNameRegex.Match(fileName);
+                var fileNameMatches = FileNameRegex.Match(file.FileName);
 
                 if (!fileNameMatches.Success)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Skipping file {fileName}");
+                    System.Diagnostics.Debug.WriteLine($"Skipping file {file.FileName}");
                     break;
                 }
 
@@ -45,38 +46,10 @@ namespace Piston.Storage
                 var slug = fileNameMatches.Groups["slug"].Value.ToUrlSlug();
                 var date = DateTime.ParseExact(year + month + day, "yyyyMMdd", CultureInfo.InvariantCulture);
 
-                var rawContent = File.ReadAllText(file);
-                Dictionary<string, object> settings = new Dictionary<string, object>();
-                string bodySerialized = string.Empty;
-
-                var startOfSettingsIndex = rawContent.IndexOf("---", StringComparison.InvariantCultureIgnoreCase);
-                if (startOfSettingsIndex >= 0)
-                {
-                    //Find the second index of --- after the first
-                    var endOfSettingsIndex = rawContent.IndexOf("---", startOfSettingsIndex + 3,
-                        StringComparison.InvariantCultureIgnoreCase);
-
-                    //If we find the 2nd index, parse the settings
-                    //Otherwise we assume there's no header or settings...
-                    if (endOfSettingsIndex >= 0)
-                    {
-                        var parsedSettings = rawContent.Substring(startOfSettingsIndex, endOfSettingsIndex + 3);
-                        var parsedContent = rawContent.Substring(endOfSettingsIndex + 3, rawContent.Length - (endOfSettingsIndex + 3));
-                        bodySerialized = _mark.Transform(parsedContent);
-
-                        settings = ParseSettings(parsedSettings);
-                    }
-                }
-                else
-                {
-                    bodySerialized = _mark.Transform(rawContent);
-                }
-
                 var post = new Post
                 {
-                    FileName = fileName,
-                    Content = bodySerialized,
-                    Settings = settings,
+                    FileName = file.FileName,
+                    Content = _mark.Transform(file.Body),
                     Year = date.Year,
                     Month = date.Month,
                     Day = date.Day,
@@ -85,7 +58,7 @@ namespace Piston.Storage
                 };
 
                 post.SetDefaultSettings();
-                post.SetHeaderSettings(settings);
+                post.SetHeaderSettings(ParseSettings(file.Header));
 
                 posts.Add(post);
             }

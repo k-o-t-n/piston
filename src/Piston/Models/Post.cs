@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Piston.Models
 {
@@ -97,7 +96,7 @@ namespace Piston.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public string Layout { get; set; }
-        public IDictionary<string, dynamic> Settings { get; set; }
+
         public string FileName { get; set; }
 
         public int Year { get; set; }

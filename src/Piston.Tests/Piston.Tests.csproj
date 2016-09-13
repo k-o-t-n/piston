@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\ContentLoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -70,6 +71,9 @@
       <Project>{2527e43e-487b-4900-87be-fae7434fe28d}</Project>
       <Name>Piston</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

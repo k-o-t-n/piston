@@ -142,6 +142,12 @@
     <Compile Include="Storage\CachedPageStorage.cs" />
     <Compile Include="Storage\CachedPostStorage.cs" />
     <Compile Include="Storage\CacheHelper.cs" />
+    <Compile Include="Storage\ContentLoader.cs" />
+    <Compile Include="Storage\DirectoryReader.cs" />
+    <Compile Include="Storage\FileReader.cs" />
+    <Compile Include="Storage\IContentLoader.cs" />
+    <Compile Include="Storage\IDirectoryReader.cs" />
+    <Compile Include="Storage\IFileReader.cs" />
     <Compile Include="Storage\IPageStorage.cs" />
     <Compile Include="Storage\IPostStorage.cs" />
     <Compile Include="Models\Page.cs" />
@@ -151,6 +157,7 @@
     <Compile Include="SlugExtensions.cs" />
     <Compile Include="Storage\PostStorage.cs" />
     <Compile Include="Storage\PageStorage.cs" />
+    <Compile Include="Storage\RawContent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
