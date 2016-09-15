@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Piston.Models;
-
-namespace Piston.Storage
+﻿namespace Piston.Storage
 {
+    using System.Collections.Generic;
+    using Models;
+
     internal class CachedPostStorage : IPostStorage
     {
         private readonly IPostStorage _inner;

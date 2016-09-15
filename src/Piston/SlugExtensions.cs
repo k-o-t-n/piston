@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using Piston.Models;
-
-namespace Piston
+﻿namespace Piston
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Piston.Models;
+
     public static class SlugExtensions
     {
         private static readonly SortedList<int, Func<string, Post, string>> UrlFormatParser = new SortedList
@@ -74,12 +74,7 @@ namespace Piston
         {
             foreach (var postHeader in posts)
             {
-                var urlFormat = Piston.Settings.PostUrlFormat.Trim('/').AppendSlashIfNecessary();
-
-                if (postHeader.Published == Published.Draft)
-                {
-                    urlFormat = "/drafts" + urlFormat;
-                }
+                var urlFormat = Settings.PostUrlFormat.Trim('/').AppendSlashIfNecessary();
 
                 foreach (var s in UrlFormatParser.OrderBy(x => x.Key).Select(x => x.Value))
                 {

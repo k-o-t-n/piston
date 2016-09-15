@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Piston.Models;
-
-namespace Piston.Storage
+﻿namespace Piston.Storage
 {
+    using System.Collections.Generic;
+    using Models;
+
     internal class CachedPageStorage : IPageStorage
     {
         private readonly IPageStorage _inner;

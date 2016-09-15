@@ -1,12 +1,9 @@
-﻿using Piston.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Piston.Controllers
+﻿namespace Piston.Controllers
 {
+    using Storage;
+    using System.Linq;
+    using System.Web.Mvc;
+
     public class PageController : Controller
     {
         private readonly IPageStorage _pageStorage;

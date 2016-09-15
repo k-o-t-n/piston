@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Piston.Models
+﻿namespace Piston.Models
 {
     public class Page
     {

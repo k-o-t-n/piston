@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-
-namespace Piston
+﻿namespace Piston
 {
+    using System.Configuration;
+
     public static class Settings
     {
         static Settings()

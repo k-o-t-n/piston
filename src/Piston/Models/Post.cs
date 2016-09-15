@@ -1,39 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Piston.Models
+﻿namespace Piston.Models
 {
-    public enum Published
-    {
-        True = 0,
-        Private = 1,
-        Draft = 2,
-    }
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class Post
     {
         public Post()
         {
             Categories = Enumerable.Empty<string>();
+            Author = Settings.DefaultAuthor;
+            Email = Settings.DefaultEmail;
         }
 
-        public virtual void SetDefaultSettings()
+        public void LoadMetadata(IEnumerable<KeyValuePair<string, string>> metadata)
         {
-            Author = Piston.Settings.DefaultAuthor;
-            Email = Piston.Settings.DefaultEmail;
-        }
-
-        public void SetHeaderSettings(Dictionary<string, object> settings)
-        {
-            foreach (var setting in settings)
+            foreach (var setting in metadata)
             {
                 switch (setting.Key.ToLower())
                 {
                     case "categories":
                     case "category":
                         {
-                            var categories = ((string)setting.Value).Split(
+                            var categories = setting.Value.Split(
                                 new[] { "," },
                                 StringSplitOptions.RemoveEmptyEntries);
 
@@ -43,40 +32,38 @@ namespace Piston.Models
                         }
                     case "title":
                         {
-                            Title = (string)setting.Value;
+                            Title = setting.Value;
                             break;
                         }
                     case "layout":
                         {
-                            Layout = (string)setting.Value;
+                            Layout = setting.Value;
                             break;
                         }
                     case "author":
                         {
-                            Author = (string)setting.Value;
+                            Author = setting.Value;
                             break;
                         }
                     case "email":
                         {
-                            Email = (string)setting.Value;
+                            Email = setting.Value;
                             break;
                         }
                     case "published":
                         {
-                            Published published;
-                            Enum.TryParse((string)setting.Value, true, out published);
-                            Published = published;
+                            IsPublished = new [] { "true", "published" }.Contains(setting.Value.ToLowerInvariant());
                             break;
                         }
                     case "metadescription":
                         {
-                            MetaDescription = (string)setting.Value;
+                            MetaDescription = setting.Value;
                             break;
                         }
                     case "tags":
                     case "keywords":
                         {
-                            Keywords = (string)setting.Value;
+                            Keywords = setting.Value;
 
                             break;
                         }
@@ -92,7 +79,7 @@ namespace Piston.Models
         public IEnumerable<string> Categories { get; set; }
         public string Keywords { get; set; }
 
-        public Published Published { get; set; }
+        public bool IsPublished { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Layout { get; set; }
