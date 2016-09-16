@@ -1,0 +1,12 @@
+﻿@model Piston.Models.Post
+
+<h1>@Html.RouteLink(Model.Title, routeName: "Post", routeValues: new { slug = Model.Url })</h1>
+<p>@Model.Author</p>
+
+@Html.Raw(Model.Content.Substring(0, Model.Content.IndexOf("</p>") + 4))
+
+<p>
+    @Html.RouteLink("Read more...", routeName: "Post", routeValues: new { slug = Model.Url })
+</p>
+
+<hr/>

@@ -47,3 +47,11 @@ a:hover {
 .pager li {
     list-style: none;
 }
+
+.preview h1 a {
+    color: #000;
+}
+
+.preview h1 a:hover {
+    text-decoration: none;
+}

@@ -183,6 +183,7 @@
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Post\Post.cshtml" />
     <Content Include="Views\Post\Review.cshtml" />
+    <Content Include="Views\Post\_Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
