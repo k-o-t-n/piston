@@ -67,6 +67,20 @@
 
                             break;
                         }
+                    case "score":
+                        {
+                            int score;
+                            if (int.TryParse(setting.Value, out score))
+                            {
+                                Score = score;
+                            }
+                            else
+                            {
+                                Score = 0;
+                            }
+
+                            break;
+                        }
                 }
             }
         }
@@ -92,5 +106,7 @@
         public string Url { get; set; }
 
         public DateTime Date { get; set; }
+
+        public int Score { get; set; }
     }
 }
