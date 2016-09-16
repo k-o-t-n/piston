@@ -12,6 +12,7 @@
             DefaultAuthor = ConfigurationManager.AppSettings.Get("piston:defaultAuthor");
             DefaultEmail = ConfigurationManager.AppSettings.Get("piston:defaultEmail");
             PostUrlFormat = ConfigurationManager.AppSettings.Get("piston:postUrlFormat");
+            MaxScore = int.Parse(ConfigurationManager.AppSettings.Get("piston:maxScore"));
         }
 
         public static string Title { get; private set; }
@@ -20,5 +21,6 @@
         public static string DefaultAuthor { get; private set; }
         public static string DefaultEmail { get; private set; }
         public static string PostUrlFormat { get; private set; }
+        public static int MaxScore { get; private set; }
     }
 }
