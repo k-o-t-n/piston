@@ -11,6 +11,7 @@
             Categories = Enumerable.Empty<string>();
             Author = Settings.DefaultAuthor;
             Email = Settings.DefaultEmail;
+            Layout = "post";
         }
 
         public void LoadMetadata(IEnumerable<KeyValuePair<string, string>> metadata)
@@ -37,7 +38,7 @@
                         }
                     case "layout":
                         {
-                            Layout = setting.Value;
+                            Layout = setting.Value.ToLowerInvariant();
                             break;
                         }
                     case "author":

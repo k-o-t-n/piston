@@ -1,0 +1,11 @@
+﻿@model Piston.Models.Post
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Author</p>
+
+@Html.Raw(Model.Content)
+
+<p class="score">@Model.Score / @Settings.MaxScore</p>

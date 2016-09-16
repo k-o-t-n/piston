@@ -38,7 +38,7 @@
                 return HttpNotFound();
             }
 
-            return View(post);
+            return View(post.Layout, post);
         }
     }
 }
