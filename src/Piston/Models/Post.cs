@@ -99,6 +99,14 @@
         public string Content { get; set; }
         public string Layout { get; set; }
 
+        public string Preview
+        {
+            get
+            {
+                return Content.Substring(0, Content.IndexOf("</p>", StringComparison.OrdinalIgnoreCase) + 4);
+            }
+        }
+
         public string FileName { get; set; }
 
         public int Year { get; set; }
