@@ -52,7 +52,7 @@
 
             posts.SetPostUrl();
 
-            return posts.AsEnumerable();
+            return posts.OrderByDescending(x => x.Date).AsEnumerable();
         }
     }
 }
