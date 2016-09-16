@@ -165,6 +165,7 @@
     <Content Include="posts\2016-09-10-first-post.md" />
     <Content Include="posts\2016-09-16-first-review.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="posts\assets\piston.jpg" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\_references.js" />
