@@ -1,12 +1,24 @@
-﻿@model IEnumerable<Piston.Models.Post>
+﻿@model Piston.Models.PostList
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 <ul>
-@foreach(var post in Model)
+@foreach(var post in Model.Posts)
 {
     <li>@Html.RouteLink(post.Title, routeName: "Post", routeValues: new { slug = post.Url })</li>
 }
+</ul>
+
+<ul class="pager">
+    @if (Model.PostCount > Settings.PostsPerPage * Model.Page)
+    {
+        <li class="previous"><a href="~/page/@(Model.Page + 1)" rel="prev">&larr; Older</a></li>
+    }
+
+    @if (Model.Page > 1)
+    {
+        <li class="next"><a href="~/page/@(Model.Page - 1)" rel="next">Newer &rarr;</a></li>
+    }
 </ul>

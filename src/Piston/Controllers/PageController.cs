@@ -13,7 +13,7 @@
             _pageStorage = pageStorage;
         }
 
-        [Route("~/page/{pageName}", Name = "Page")]
+        [Route("~/pages/{pageName}", Name = "Page")]
         public ActionResult Index(string pageName)
         {
             var page = _pageStorage.GetAllPages().SingleOrDefault(p => p.Title == pageName);
@@ -24,14 +24,6 @@
             }
 
             return View(page);
-        }
-
-        [Route("~/page/menu")]
-        public ActionResult Menu()
-        {
-            var pages = _pageStorage.GetAllPages();
-
-            return PartialView(pages);
         }
     }
 }

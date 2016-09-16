@@ -1,9 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Text.RegularExpressions;
-
-namespace Piston.Storage
+﻿namespace Piston.Storage
 {
+    using System;
+    using System.Globalization;
+    using System.Text.RegularExpressions;
+
     public static class FileNameParser
     {
         private static readonly Regex FileNameRegex =

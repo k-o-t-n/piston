@@ -1,5 +1,6 @@
 ﻿namespace Piston.Controllers
 {
+    using Models;
     using Storage;
     using System.Linq;
     using System.Web.Mvc;
@@ -14,11 +15,17 @@
         }
 
         [Route("~/", Name = "Home")]
-        public ActionResult Index()
+        [Route("~/page/{page:int?}")]
+        public ActionResult Index(int page = 1)
         {
             var posts = _postStorage.GetAllPosts();
 
-            return View(posts);
+            var model = new PostList(posts)
+            {
+                Page = page
+            };
+
+            return View(model);
         }
 
         [Route("~/post/{*slug}", Name = "Post")]

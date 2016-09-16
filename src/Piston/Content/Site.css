@@ -43,3 +43,7 @@ a:hover {
     font-weight: 900;
     font-size: xx-large;
 }
+
+.pager li {
+    list-style: none;
+}
