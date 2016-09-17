@@ -13,10 +13,10 @@
             _pageStorage = pageStorage;
         }
 
-        [Route("~/pages/{pageName}", Name = "Page")]
-        public ActionResult Index(string pageName)
+        [Route("~/pages/{slug}", Name = "Page")]
+        public ActionResult Index(string slug)
         {
-            var page = _pageStorage.GetAllPages().SingleOrDefault(p => p.Title == pageName);
+            var page = _pageStorage.GetAllPages().SingleOrDefault(p => p.Url == slug);
 
             if (page == null)
             {

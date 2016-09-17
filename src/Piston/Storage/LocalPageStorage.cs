@@ -27,9 +27,11 @@
 
                 var page = new Page
                 {
-                    Title = Path.GetFileNameWithoutExtension(filePath),
+                    Url = Path.GetFileNameWithoutExtension(filePath).ToLowerInvariant(),
                     Content = _mark.Transform(fileContent)
                 };
+
+                page.LoadMetadata(_mark.Metadata(fileContent));
 
                 pages.Add(page);
             }
