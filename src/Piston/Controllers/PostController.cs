@@ -2,6 +2,7 @@
 {
     using Models;
     using Storage;
+    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -18,7 +19,8 @@
         [Route("~/page/{page:int?}")]
         public ActionResult Index(int page = 1)
         {
-            var posts = _postStorage.GetAllPosts();
+            var posts = _postStorage.GetAllPosts()
+                .Where(p => p.IsPublished && p.Date <= DateTime.Now.Date);
 
             var model = new PostList(posts)
             {
