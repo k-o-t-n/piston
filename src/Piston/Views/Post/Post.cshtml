@@ -3,7 +3,23 @@
     ViewBag.Title = Model.Title;
 }
 
-<h1>@Model.Title</h1>
-<p>@Model.Author</p>
+<div id="post">
 
-@Html.Raw(Model.Content)
+    <h1>@Model.Title</h1>
+
+    <p>By @Model.Author on @Model.Date.ToLongDateString()</p>
+
+    <p class="post-meta">
+        @foreach (var category in Model.Categories)
+        {
+            @Html.RouteLink(category, routeName: "Category", routeValues: new { category }, htmlAttributes: new { @class = "post-category" })
+        }
+        @foreach (var tag in Model.Tags)
+        {
+            @Html.RouteLink(tag, routeName: "Tag", routeValues: new { tag }, htmlAttributes: new { @class = "post-tag" })
+        }
+    </p>
+
+    @Html.Raw(Model.Content)
+
+</div>

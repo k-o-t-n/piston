@@ -35,6 +35,7 @@ namespace Piston.Models
         public Post()
         {
             Categories = Enumerable.Empty<string>();
+            Tags = Enumerable.Empty<string>();
             Author = Settings.DefaultAuthor;
             Email = Settings.DefaultEmail;
             Layout = "post";
@@ -90,7 +91,11 @@ namespace Piston.Models
                     case "tags":
                     case "keywords":
                         {
-                            Keywords = setting.Value;
+                            var tags = setting.Value.Split(
+                                new[] { "," },
+                                StringSplitOptions.RemoveEmptyEntries);
+
+                            Tags = tags.Select(x => x.Trim()).OrderBy(x => x);
 
                             break;
                         }
@@ -118,7 +123,7 @@ namespace Piston.Models
         public string Email { get; set; }
 
         public IEnumerable<string> Categories { get; set; }
-        public string Keywords { get; set; }
+        public IEnumerable<string> Tags { get; set; }
 
         public bool IsPublished { get; set; }
         public string Title { get; set; }

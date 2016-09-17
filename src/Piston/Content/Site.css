@@ -55,3 +55,32 @@ a:hover {
 .preview h1 a:hover {
     text-decoration: none;
 }
+
+.post-category {
+    border: 1px solid #337ab7;
+    background-color: #337ab7;
+    color: #fff;
+    padding: 4px;
+    margin: 0 2px;
+}
+
+a:hover.post-category {
+    color: #fff;
+}
+
+.post-tag {
+    border: 1px solid #33b77e;
+    background-color: #33b77e;
+    color: #fff;
+    padding: 4px;
+    margin: 0 2px;
+}
+
+a:hover.post-tag {
+    color: #fff;
+}
+
+.score {
+    font-size: x-large;
+    font-weight: 800;
+}

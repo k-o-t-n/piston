@@ -16,11 +16,17 @@
         }
 
         [Route("~/", Name = "Home")]
-        [Route("~/page/{page:int?}")]
-        public ActionResult Index(int page = 1)
+        [Route("~/page/{page:int}")]
+        [Route("~/category/{category}", Name = "Category")]
+        [Route("~/category/{category}/page/{page:int}")]
+        [Route("~/tag/{tag}", Name = "Tag")]
+        [Route("~/tag/{tag}/page/{page:int}")]
+        public ActionResult Index(int page = 1, string category = null, string tag = null)
         {
             var posts = _postStorage.GetAllPosts()
-                .Where(p => p.IsPublished && p.Date <= DateTime.Now.Date);
+                .Where(p => p.IsPublished && p.Date <= DateTime.Now.Date
+                    && (string.IsNullOrWhiteSpace(category) || p.Categories.Contains(category))
+                    && (string.IsNullOrWhiteSpace(tag) || p.Tags.Contains(tag)));
 
             var model = new PostList(posts)
             {
