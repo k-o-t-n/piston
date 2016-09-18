@@ -212,6 +212,7 @@
     <Folder Include="assets\" />
     <Folder Include="Content\" />
     <Folder Include="pages\" />
+	<Folder Include="posts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
