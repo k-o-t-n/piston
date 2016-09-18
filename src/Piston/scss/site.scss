@@ -1,0 +1,96 @@
+// ==========================================================================
+// Website or App Stylesheet
+// ==========================================================================
+
+// Variables and Colors
+@import "styles/variables-colors";
+
+// Import Base
+@import "base";
+
+// Website / App Styles
+@import "styles/header";
+@import "styles/footer";
+
+// Import Base Helpers
+@import "base/_helpers";
+
+body {
+  padding-bottom: 20px;
+}
+
+.body-content {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.dl-horizontal dt {
+  white-space: normal;
+}
+
+input, select, textarea {
+  max-width: 280px;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.banner {
+  background-color: $banner-background-color;
+  color: $banner-font-color;
+}
+
+a.brand {
+  color: $brand-font-color;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: xx-large;
+  &:hover {
+    color: $brand-font-color;
+  }
+}
+
+.pager li {
+  list-style: none;
+}
+
+.preview h1 a {
+  color: $base-h1-color;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.post-category {
+  border: 1px solid $category-color;
+  background-color: $category-color;
+  color: $white;
+  padding: 4px;
+  margin: 0 2px;
+}
+
+a:hover.post-category {
+  color: $white;
+}
+
+.post-tag {
+  border: 1px solid $tag-color;
+  background-color: $tag-color;
+  color: $white;
+  padding: 4px;
+  margin: 0 2px;
+}
+
+a:hover.post-tag {
+  color: $white;
+}
+
+.score {
+  font-size: x-large;
+  font-weight: 800;
+}

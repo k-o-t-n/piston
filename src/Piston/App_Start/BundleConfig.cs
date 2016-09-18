@@ -11,8 +11,7 @@
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/base.css",
-                      "~/Content/Site.css"));
+                      "~/Content/site.css"));
         }
     }
 }

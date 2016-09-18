@@ -158,10 +158,8 @@
     <Compile Include="Storage\LocalPageStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\base.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="pages\*.md" />
     <Content Include="posts\*.md" />
     <Content Include="assets\*" />
@@ -188,12 +186,32 @@
     <Content Include="Views\Errors\InternalError.cshtml" />
     <Content Include="Views\Errors\Error.cshtml" />
     <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="scss\base.scss" />
+    <Content Include="scss\base\_animations.scss" />
+    <Content Include="scss\base\_blockquotes.scss" />
+    <Content Include="scss\base\_buttons.scss" />
+    <Content Include="scss\base\_code.scss" />
+    <Content Include="scss\base\_forms.scss" />
+    <Content Include="scss\base\_grid-non-responsive.scss" />
+    <Content Include="scss\base\_grid.scss" />
+    <Content Include="scss\base\_helpers.scss" />
+    <Content Include="scss\base\_lists.scss" />
+    <Content Include="scss\base\_mixins.scss" />
+    <Content Include="scss\base\_print.scss" />
+    <Content Include="scss\base\_resets.scss" />
+    <Content Include="scss\base\_tables.scss" />
+    <Content Include="scss\base\_typography.scss" />
+    <Content Include="scss\base\_variables.scss" />
+    <Content Include="scss\site.scss" />
+    <Content Include="scss\styles\_footer.scss" />
+    <Content Include="scss\styles\_header.scss" />
+    <Content Include="scss\styles\_variables-colors.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\" />
+    <Folder Include="Content\" />
     <Folder Include="pages\" />
-    <Folder Include="posts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -242,4 +260,12 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="BeforeBuild">
+    <!-- Compile sass files -->
+    <Exec Command="&quot;$(MSBuildProjectDirectory)\..\..\tools\sassc.exe&quot; scss\site.scss &gt; Content\site.css" />
+    <!-- Include css files as content -->
+    <CreateItem Include="Content\site.css">
+      <Output ItemName="Content" TaskParameter="Include" />
+    </CreateItem>
+  </Target>
 </Project>
