@@ -160,8 +160,8 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="pages\*.md" />
-    <Content Include="posts\*.md" />
+    <Content Include="pages\*" />
+    <Content Include="posts\*" />
     <Content Include="assets\*" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -209,10 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\" />
     <Folder Include="Content\" />
-    <Folder Include="pages\" />
-	<Folder Include="posts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
