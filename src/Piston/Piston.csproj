@@ -163,8 +163,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="pages\*.md" />
-    <Content Include="posts\2016-09-10-first-post.md" />
-    <Content Include="posts\2016-09-16-first-review.md" />
+    <Content Include="posts\*.md" />
     <Content Include="assets\*" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -192,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
+    <Folder Include="pages\" />
+    <Folder Include="posts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
