@@ -6,6 +6,16 @@
 
 ========================================================================== */
 
+// Override base's default variables
+$base-font-family: 'Bitter', serif; 
+$base-heading-font-family: 'Raleway', sans-serif;
+$base-line-height: 30;
+$base-link-color: black;
+$base-link-hover-color: #808080;
+$banner-background-color: black;
+$brand-font-color: white;
+$banner-font-color: white;
+
 @import "base/_variables";
 
 @import "base/_mixins";

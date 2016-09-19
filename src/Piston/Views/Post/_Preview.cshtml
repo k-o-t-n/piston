@@ -1,12 +1,16 @@
-﻿@model Piston.Models.Post
+﻿<div class="row clear">
+    <div class="col-12 col-10-m col-8-l">
+        @model Piston.Models.Post
 
-<h1>@Html.RouteLink(Model.Title, routeName: "Post", routeValues: new { slug = Model.Url })</h1>
-<p>@Model.Author</p>
+        <h1 class="no-margin">@Html.RouteLink(Model.Title, routeName: "Post", routeValues: new { slug = Model.Url })</h1>
+        <p><em>@Model.Author</em></p>
 
-@Html.Raw(Model.Preview)
+        @Html.Raw(Model.Preview)
 
-<p>
-    @Html.RouteLink("Read more...", routeName: "Post", routeValues: new { slug = Model.Url })
-</p>
+        <p>
+            @Html.RouteLink("Read more...", routeName: "Post", routeValues: new { slug = Model.Url })
+        </p>
+    </div>
+</div>
 
-<hr/>
+<hr />

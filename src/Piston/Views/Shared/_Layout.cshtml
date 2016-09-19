@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @Settings.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Raleway:900" rel="stylesheet">
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -15,7 +16,7 @@
             @*@Html.Action("Menu", new { Controller = "Page", Action = "Menu" })*@
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container pad-top-40 pad-bottom-40">
         @RenderBody()
         <hr />
         <footer>
