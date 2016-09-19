@@ -18,5 +18,3 @@ Being able to instantly drop into a turn adds yet more depth. When you're feelin
 To top everything off, Transistor has an intriguing plot told through a compelling narrative. It won't cram it's story and metaphors down your throat; but it will provide enough snippets of backstory to get your brain ticking. It's done cleverly and told wonderfully - truly great stuff. Complementing all of this is the incredible sound work. The music is gorgeous, the game sounds are masterful, and the voice acting is unexpectedly good.
 
 Transistor is superb. Transistor reminds me why I love video games. Play Transistor.
-
-1/1
