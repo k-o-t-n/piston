@@ -1,9 +1,10 @@
----
-category: videogame
+categories: videogame, review
 title: Transistor
 layout: review
-author: Jorje
----
+author: Matt G
+score: 1
+published: true
+
 Transistor is a game that initially passed me by. Despite having much love for Bastion, I didn't feel compelled to check out Transistor when it released. What a mistake.
 
 Transistor is a beautiful game, in every aspect. It looks stunning, runs smoothly, and contains a ridiculous level of polish. Early on, I upgraded the starter function **Breach()** with newly-unlocked **Switch()**. The first time I used this combo, the little hearts that came tumbling out of the familiar **Breach()** FX made me stop and smile. This attention to detail is present throughout the game, and I just can't get enough of it.
