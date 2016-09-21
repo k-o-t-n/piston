@@ -19,5 +19,13 @@ key3: value
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
         public const string NotMarkdown = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+        public const string MarkdownWithVideo = @"# Heading
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+@[video](http://site.com/video.mp4)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
     }
 }

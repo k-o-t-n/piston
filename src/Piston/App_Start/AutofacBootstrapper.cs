@@ -2,7 +2,7 @@
 {
     using Autofac;
     using Autofac.Integration.Mvc;
-    using Piston.Markdown;
+    using Markdown;
     using Storage;
 
     public static class AutofacBootstrapper
@@ -19,7 +19,12 @@
             builder.RegisterDecorator<IPageStorage>((c, inner) => new CachedPageStorage(inner), fromKey: "pageStorage").SingleInstance();
             builder.RegisterDecorator<IPostStorage>((c, inner) => new CachedPostStorage(inner), fromKey: "postStorage").SingleInstance();
 
-            builder.RegisterType<MetadataMarkdown>().SingleInstance();
+            builder.Register(c =>
+            {
+                var markdown = new MetadataMarkdown();
+                markdown.AddExtension(new VideoUrl());
+                return markdown;
+            }).SingleInstance();
 
             return builder.Build();
         }
