@@ -1,4 +1,4 @@
-﻿namespace Piston.Tests
+﻿namespace Piston.Tests.Markdown
 {
     internal class TestData
     {
