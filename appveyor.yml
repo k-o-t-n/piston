@@ -4,6 +4,7 @@ pull_requests:
 before_build:
 - cmd: >-
     cd src
+    
     nuget restore
 build:
   verbosity: minimal
