@@ -1,21 +1,21 @@
 ﻿namespace Piston.Tests.Markdown
 {
     using Piston.Markdown;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Xunit;
 
     public class VideoUrlTests
     {
+        private readonly VideoUrl _videoUrl;
+
+        public VideoUrlTests()
+        {
+            _videoUrl = new VideoUrl();
+        }
+
         [Fact]
         public void CanParseVideoUrl()
         {
-            var videoUrl = new VideoUrl();
-
-            var result = videoUrl.Transform(TestData.MarkdownWithVideo);
+            var result = _videoUrl.Transform(TestData.MarkdownWithVideo);
 
             Assert.Equal(@"# Heading
 
@@ -29,11 +29,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.", result);
         [Fact]
         public void CanParseNoVideoUrl()
         {
-            var videoUrl = new VideoUrl();
-
-            var result = videoUrl.Transform(TestData.Markdown);
+            var result = _videoUrl.Transform(TestData.Markdown);
 
             Assert.Equal(result, TestData.Markdown);
+        }
+
+        [Fact]
+        public void CanParseTextContainingVideoButNoUrl()
+        {
+            var text = @"# Heading
+
+Lorem ipsum dolor sit amet video, consectetur adipiscing elit.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+            var result = _videoUrl.Transform(text);
+
+            Assert.Equal(result, text);
         }
     }
 }
