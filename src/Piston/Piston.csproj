@@ -141,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Markdown\MetadataMarkdown.cs" />
+    <Compile Include="Markdown\VideoUrl.cs" />
     <Compile Include="Models\PostList.cs" />
     <Compile Include="Storage\CachedPageStorage.cs" />
     <Compile Include="Storage\CachedPostStorage.cs" />
@@ -161,7 +162,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="pages\*" />
-    <Content Include="posts\*" />
+    <Content Include="posts\2016-09-14-mirrors-edge-catalyst.md" />
+    <Content Include="posts\2016-09-19-transistor.md" />
+    <Content Include="posts\place-posts-here" />
     <Content Include="assets\*" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

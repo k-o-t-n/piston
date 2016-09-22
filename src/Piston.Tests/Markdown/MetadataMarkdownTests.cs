@@ -1,7 +1,7 @@
-﻿namespace Piston.Tests
+﻿namespace Piston.Tests.Markdown
 {
     using HeyRed.MarkdownSharp;
-    using Markdown;
+    using Piston.Markdown;
     using System.Linq;
     using Xunit;
 
