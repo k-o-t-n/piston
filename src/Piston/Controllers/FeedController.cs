@@ -6,6 +6,7 @@
     using System.ServiceModel.Syndication;
     using Storage;
     using System.Linq;
+    using Infrastructure;
 
     public class FeedController : Controller
     {

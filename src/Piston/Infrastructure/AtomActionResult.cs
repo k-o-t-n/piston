@@ -1,4 +1,4 @@
-﻿namespace Piston
+﻿namespace Piston.Infrastructure
 {
     using System.ServiceModel.Syndication;
     using System.Text;

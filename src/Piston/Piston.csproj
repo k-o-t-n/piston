@@ -135,7 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AtomActionResult.cs" />
+    <Compile Include="Infrastructure\AtomActionResult.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\PageController.cs" />
